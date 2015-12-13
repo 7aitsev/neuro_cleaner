@@ -1,8 +1,6 @@
 package org.appspot.neurostorage;
 
 import android.support.design.widget.TabLayout;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
 import android.support.v4.app.Fragment;
@@ -12,10 +10,14 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
+  // singleton
+  private static MainActivity instance = null;
+  public static MainActivity getInstance(){
+    return instance;
+  }
 
   /**
    * The {@link android.support.v4.view.PagerAdapter} that will provide
@@ -36,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    instance = this;
 
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setActionBar(toolbar);
@@ -78,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
     //noinspection SimplifiableIfStatement
     if(id == R.id.action_settings) {
+      // todo open an activity with a settings
+      return true;
+    } else if(id == R.id.action_about) {
+      // todo open an activity with a description
       return true;
     }
 

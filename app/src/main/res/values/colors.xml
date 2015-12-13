@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
     <color name="textColorPrimary">#E8EAF6</color>
     <color name="windowBackground">#424242</color>
+
+    <color name="controlColor">#fff</color>
+    <color name="controlTextColorPrimary">#212121</color>
+    <color name="controlTextColorSecondary">#9E9E9E</color>
 </resources>

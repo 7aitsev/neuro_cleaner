@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="There will be a list of files which are have not to be removed."
+        android:textColor="@color/textColorPrimary"
         android:gravity="center"
         android:padding="16dp"/>
 
