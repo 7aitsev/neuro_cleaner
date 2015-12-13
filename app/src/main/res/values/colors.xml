@@ -9,4 +9,6 @@
     <color name="controlColor">#fff</color>
     <color name="controlTextColorPrimary">#212121</color>
     <color name="controlTextColorSecondary">#9E9E9E</color>
+
+    <color name="neuroColor">#fff</color>
 </resources>

@@ -127,9 +127,9 @@ public class MainActivity extends AppCompatActivity {
     public CharSequence getPageTitle(int position) {
       switch(position) {
         case 0:
-          return getString(R.string.tabControl);
+          return getString(R.string.tab_control);
         case 1:
-          return getString(R.string.tabExclusions);
+          return getString(R.string.tab_exclusions);
       }
       return null;
     }

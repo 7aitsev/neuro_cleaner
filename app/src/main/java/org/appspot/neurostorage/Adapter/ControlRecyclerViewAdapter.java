@@ -1,4 +1,4 @@
-package org.appspot.neurostorage.ControlList;
+package org.appspot.neurostorage.Adapter;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.appspot.neurostorage.MainActivity;
+import org.appspot.neurostorage.NeuroListActivity;
 import org.appspot.neurostorage.R;
 import org.appspot.neurostorage.RecordControl;
 
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 public class ControlRecyclerViewAdapter extends
   RecyclerView.Adapter<ControlRecyclerViewAdapter.ViewHolder> {
   private ArrayList<RecordControl> mRecords;
+  final private String TAG = getClass().getSimpleName();
 
   public ControlRecyclerViewAdapter(ArrayList<RecordControl> records) {
     mRecords = records;
@@ -36,7 +38,7 @@ public class ControlRecyclerViewAdapter extends
     try {
       holder.dirSize.setText(Long.toString(rc.getDirSize()) + " MiB");
     } catch(NumberFormatException e) {
-      Log.d("RecyclerViewAdapter", e.getMessage());
+      Log.d(TAG, e.getMessage());
       holder.dirSize.setText("unknown size");
     }
     holder.startListener.setPath(rc.getDirPath());
@@ -73,7 +75,7 @@ public class ControlRecyclerViewAdapter extends
       Intent intent = new Intent(MainActivity.getInstance(), NeuroListActivity.class);
       intent.putExtra("PATH", mPath);
       MainActivity.getInstance().startActivity(intent);
-      Log.d("TAGGGGGG", "Clicked" + mPath);
+      Log.d("TAGGGGGG", "Clicked: " + mPath);
     }
   }
 }

@@ -2,6 +2,8 @@
 <manifest package="org.appspot.neurostorage"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -18,7 +20,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ControlList.NeuroListActivity">
+            android:name=".NeuroListActivity">
         </activity>
     </application>
 
