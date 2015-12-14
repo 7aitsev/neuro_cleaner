@@ -11,4 +11,7 @@
     <color name="controlTextColorSecondary">#9E9E9E</color>
 
     <color name="neuroColor">#fff</color>
+
+    <color name="bottomSheetColor">#fff</color>
+    <color name="bottomSheetColorPrimary">#d9212121</color>
 </resources>

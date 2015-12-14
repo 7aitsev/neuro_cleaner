@@ -1,5 +1,6 @@
 package org.appspot.neurostorage;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toolbar;
+
+import org.appspot.neurostorage.Servise.MemoryOfficer;
 
 public class MainActivity extends AppCompatActivity {
   // singleton
@@ -38,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
+
+    startService(new Intent(this, MemoryOfficer.class));
 
     instance = this;
 

@@ -22,6 +22,16 @@
         <activity
             android:name=".NeuroListActivity">
         </activity>
+        <service
+            android:name=".Servise.MemoryOfficer"
+            android:enabled="true"
+            android:exported="true">
+        </service>
+        <receiver
+            android:name=".Servise.MemorySergeant"
+            android:enabled="true"
+            android:exported="true">
+        </receiver>
     </application>
 
 </manifest>

@@ -1,14 +1,22 @@
 package org.appspot.neurostorage;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
 import org.appspot.neurostorage.Adapter.NeuroRecyclerViewAdapter;
+import org.appspot.neurostorage.Dialog.BottomSheet;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -23,6 +31,7 @@ public class NeuroListActivity extends AppCompatActivity {
   private RecyclerView mRecyclerView;
   private RecyclerView.Adapter mAdapter;
   private RecyclerView.LayoutManager mLayoutManager;
+//  private BottomSheet bs;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +40,15 @@ public class NeuroListActivity extends AppCompatActivity {
 
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     toolbar.setTitle(getString(R.string.neuro_list_title));
-    // todo добавить кнопку, чтобы вернуться назад, хз зачем
     setActionBar(toolbar);
+    // setActionBar first! Order is important
+    toolbar.setNavigationIcon(R.drawable.ic_keyboard_backspace_white_24dp);
+    toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        onBackPressed();
+      }
+    });
 
     Bundle extras = getIntent().getExtras();
     if(extras != null) {
@@ -48,6 +64,41 @@ public class NeuroListActivity extends AppCompatActivity {
     mRecyclerView.setLayoutManager(mLayoutManager);
     mAdapter = new NeuroRecyclerViewAdapter(mRecords);
     mRecyclerView.setAdapter(mAdapter);
+
+    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+    fab.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Snackbar snackbar = Snackbar.make(view, "", Snackbar.LENGTH_INDEFINITE);
+        View sbView = snackbar.getView();
+        sbView.setBackgroundColor(0xFFFFFFFF);
+        sbView.setPadding(0, 0, 0, 0);
+
+        Snackbar.SnackbarLayout layout = (Snackbar.SnackbarLayout) snackbar.getView();
+        // Hide the text
+        TextView textView = (TextView) layout.findViewById(android.support.design.R.id.snackbar_text);
+        textView.setVisibility(View.INVISIBLE);
+
+        // Inflate our custom view
+        View snackView = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
+
+        // Add the view to the Snackbar's layout
+        layout.addView(snackView, 0);
+        // Show the Snackbar
+        snackbar.show();
+////        layout.getRootView().setVisibility(View.GONE);
+//        TextView textView =
+//          (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
+//        textView.setVisibility(View.GONE);
+//        View snackView = getLayoutInflater().inflate(R.layout.bottom_sheet, null);
+//        ((Snackbar.SnackbarLayout) sbView).addView(snackView, 0);
+//        snackbar.show();
+//        bs = new BottomSheet(context, R.style.MaterialDialogSheet,
+//          (Snackbar.SnackbarLayout) sbView);
+//        bs.show();
+//        snackbar.show();
+      }
+    });
   }
 
   /**
@@ -56,6 +107,9 @@ public class NeuroListActivity extends AppCompatActivity {
    */
   private void doWork(String path) {
     Log.d(TAG, path);
+    if(isExternalStorageWritable()) {
+      Log.d(TAG, "Storage is available for read and write");
+    }
     long currentTime = System.currentTimeMillis();
     ArrayList<RecordNeuro> temp = new ArrayList<>();
     File[] fileList = Environment.getExternalStoragePublicDirectory(path).listFiles();
@@ -71,9 +125,14 @@ public class NeuroListActivity extends AppCompatActivity {
     }
     Collections.sort(temp, FACTOR_ORDER);
     for(RecordNeuro rn : temp) {
-      if(rn.getFactor() >= temp.get(0).getFactor()*0.62) { // Golden Ratio!
+      if(rn.getFactor() >= 0) { // Golden Ratio!
         mRecords.add(rn);
       }
+    }
+    if(mRecords.size() > temp.get(1).getFactor()*0.62) {
+//      bs.show();
+    } else {
+      Toast.makeText(this, "All clear", Toast.LENGTH_SHORT).show();
     }
   }
 

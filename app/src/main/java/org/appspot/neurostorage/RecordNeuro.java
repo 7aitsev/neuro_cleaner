@@ -15,6 +15,7 @@ public class RecordNeuro {
     mPath = path;
     mSize = size;
     mDate = date;
+    mChecked = true;
   }
 
   public final long getSize() {
