@@ -1,6 +1,7 @@
-package org.appspot.neurostorage;
+package org.appspot.neurostorage.Activity;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
 
@@ -11,9 +12,13 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toolbar;
 
+import org.appspot.neurostorage.R;
 import org.appspot.neurostorage.Servise.MemoryOfficer;
+import org.appspot.neurostorage.Fragment.TabControl;
+import org.appspot.neurostorage.Fragment.TabExclusions;
 
 public class MainActivity extends AppCompatActivity {
   // singleton
@@ -37,14 +42,32 @@ public class MainActivity extends AppCompatActivity {
    */
   private ViewPager mViewPager;
 
+  private FloatingActionButton fab;
+  private ViewPager.OnPageChangeListener pageChangeListener = new ViewPager.OnPageChangeListener() {
+    @Override
+    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) { }
+
+    @Override
+    public void onPageSelected(int position) {
+      switch(position) {
+        case 0 :
+          fab.show();
+          break;
+        default : fab.hide();
+      }
+    }
+
+    @Override
+    public void onPageScrollStateChanged(int state) { }
+  };
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
-
-    startService(new Intent(this, MemoryOfficer.class));
-
     instance = this;
+
+    //    startService(new Intent(this, MemoryOfficer.class));
 
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setActionBar(toolbar);
@@ -55,19 +78,23 @@ public class MainActivity extends AppCompatActivity {
     // Set up the ViewPager with the sections adapter.
     mViewPager = (ViewPager) findViewById(R.id.container);
     mViewPager.setAdapter(mSectionsPagerAdapter);
+    mViewPager.addOnPageChangeListener(pageChangeListener);
 
     TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
     tabLayout.setupWithViewPager(mViewPager);
 
-//    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//    fab.setOnClickListener(new View.OnClickListener() {
-//      @Override
-//      public void onClick(View view) {
-//        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//          .setAction("Action", null).show();
-//      }
-//    });
-
+    fab = (FloatingActionButton) findViewById(R.id.fab_main);
+    fab.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+//        switch(mViewPager.getCurrentItem()) {
+//          // If we are in a first tab {@link TabControl}, let users add new items to control
+//          case 0 :
+//            // TODO addNewRecord() to let users to control a chosen directory
+//          break;
+//        }
+      }
+    });
   }
 
 

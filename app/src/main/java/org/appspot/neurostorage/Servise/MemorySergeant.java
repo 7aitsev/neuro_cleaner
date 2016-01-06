@@ -10,7 +10,7 @@ import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.os.StatFs;
 
-import org.appspot.neurostorage.NeuroListActivity;
+import org.appspot.neurostorage.Activity.NeuroListActivity;
 import org.appspot.neurostorage.R;
 
 public class MemorySergeant extends BroadcastReceiver {

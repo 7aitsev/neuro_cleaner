@@ -8,4 +8,10 @@
     <string name="bottom_sheet_remove_selected_files">Remove selected files</string>
     <string name="bottom_sheet_select_all">Select all</string>
     <string name="bottom_sheet_unselect_all">Unselect all</string>
+
+    <string name="list_gen_pb_title">Searching for files</string>
+    <string name="list_gen_pb_msg">Files processed: %d</string>
+
+    <string name="chooser_view_title">View file with</string>
+    <string name="msg_not_registered_app">We cannot find an app to handle the type of this file</string>
 </resources>

@@ -10,7 +10,7 @@ public class RecordNeuro {
   private double mFactor;
   private boolean mChecked;
 
-  RecordNeuro(final long size, final Date date, final String name, final String path) {
+  public RecordNeuro(final long size, final Date date, final String name, final String path) {
     mName = name;
     mPath = path;
     mSize = size;

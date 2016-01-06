@@ -5,7 +5,7 @@ public class RecordControl {
   private long mDirSize;
   private String mDirPath;
 
-  RecordControl(String dirName, long dirSize, String dirPath) {
+  public RecordControl(String dirName, long dirSize, String dirPath) {
     mDirName = dirName;
     mDirSize = dirSize;
     mDirPath = dirPath;

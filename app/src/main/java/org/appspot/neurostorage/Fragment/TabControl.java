@@ -1,4 +1,4 @@
-package org.appspot.neurostorage;
+package org.appspot.neurostorage.Fragment;
 
 import android.os.Bundle;
 import android.os.Environment;
@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.appspot.neurostorage.Activity.MainActivity;
 import org.appspot.neurostorage.Adapter.ControlRecyclerViewAdapter;
+import org.appspot.neurostorage.R;
+import org.appspot.neurostorage.RecordControl;
 
 import java.util.ArrayList;
 
@@ -26,16 +29,16 @@ public class TabControl extends Fragment {
   public TabControl() {
     RecordControl rc = new RecordControl("DCIM", 2048, Environment.DIRECTORY_DCIM);
     mRecords.add(rc);
-    rc = new RecordControl("Movies", 1024, Environment.DIRECTORY_MOVIES);
-    mRecords.add(rc);
+//    rc = new RecordControl("Movies", 1024, Environment.DIRECTORY_MOVIES);
+//    mRecords.add(rc);
     rc = new RecordControl("Downloads", 512, Environment.DIRECTORY_DOWNLOADS);
     mRecords.add(rc);
-    rc = new RecordControl("Music", 256, Environment.DIRECTORY_MUSIC);
-    mRecords.add(rc);
-    rc = new RecordControl("Documents", 128, Environment.DIRECTORY_DOCUMENTS);
-    mRecords.add(rc);
-    rc = new RecordControl("Podcasts", 64, Environment.DIRECTORY_PODCASTS);
-    mRecords.add(rc);
+//    rc = new RecordControl("Music", 256, Environment.DIRECTORY_MUSIC);
+//    mRecords.add(rc);
+//    rc = new RecordControl("Documents", 128, Environment.DIRECTORY_DOCUMENTS);
+//    mRecords.add(rc);
+//    rc = new RecordControl("Podcasts", 64, Environment.DIRECTORY_PODCASTS);
+//    mRecords.add(rc);
   }
 
   @Override

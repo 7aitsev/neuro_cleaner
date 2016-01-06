@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.appspot.neurostorage.MainActivity;
-import org.appspot.neurostorage.NeuroListActivity;
+import org.appspot.neurostorage.Activity.MainActivity;
+import org.appspot.neurostorage.Activity.NeuroListActivity;
 import org.appspot.neurostorage.R;
 import org.appspot.neurostorage.RecordControl;
 
@@ -72,10 +72,10 @@ public class ControlRecyclerViewAdapter extends
 
     @Override
     public void onClick(View v) {
+      Log.d(TAG, "Clicked: " + mPath);
       Intent intent = new Intent(MainActivity.getInstance(), NeuroListActivity.class);
-      intent.putExtra("PATH", mPath);
+      intent.putExtra(Intent.EXTRA_TEXT, mPath);
       MainActivity.getInstance().startActivity(intent);
-      Log.d("TAGGGGGG", "Clicked: " + mPath);
     }
   }
 }

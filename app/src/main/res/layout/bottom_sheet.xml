@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<org.appspot.neurostorage.Util.MySnackbarLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/popup_window"
+    android:id="@+id/popup_window"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom|center"
+    android:layout_gravity="bottom"
     android:background="@color/bottomSheetColor"
     android:paddingTop="8dp"
+    android:paddingStart="16dp"
     android:paddingBottom="8dp"
-    android:paddingRight="16dp"
-    android:orientation="vertical">
-
+    android:paddingEnd="16dp">
     <LinearLayout
+        android:id="@+id/option_remove"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@android:drawable/ic_menu_delete"
+            android:layout_marginEnd="16dp"/>
+        <TextView
+            android:id="@+id/txt_remove"
             android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@android:drawable/ic_menu_delete"
-                android:layout_marginRight="16dp"/>
-            <TextView
-                android:id="@+id/txt_remove"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:text="@string/bottom_sheet_remove_selected_files"
-                android:textColor="@color/bottomSheetColorPrimary"
-                android:textSize="16sp"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:gravity="center">
-            <ImageView
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:background="@drawable/ic_clear_black_24dp"
-                android:layout_marginRight="16dp"/>
-            <TextView
-                android:id="@+id/txt_selection"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="16dp"
-                android:text="@string/bottom_sheet_unselect_all"
-                android:textColor="@color/bottomSheetColorPrimary"
-                android:textSize="16sp"/>
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textAlignment="viewStart"
+            android:text="@string/bottom_sheet_remove_selected_files"
+            android:textColor="@color/bottomSheetColorPrimary"
+            android:textSize="16sp"/>
     </LinearLayout>
-
-
-</org.appspot.neurostorage.Util.MySnackbarLayout>
+    <LinearLayout
+        android:id="@+id/option_selection"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:background="?attr/selectableItemBackground">
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/ic_clear_black_24dp"
+            android:layout_marginEnd="16dp"/>
+        <TextView
+            android:id="@+id/txt_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:textAlignment="viewStart"
+            android:text="@string/bottom_sheet_unselect_all"
+            android:textColor="@color/bottomSheetColorPrimary"
+            android:textSize="16sp"/>
+    </LinearLayout>
+</LinearLayout>
