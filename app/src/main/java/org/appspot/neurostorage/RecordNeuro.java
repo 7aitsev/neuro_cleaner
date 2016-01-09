@@ -1,8 +1,11 @@
 package org.appspot.neurostorage;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.Date;
 
-public class RecordNeuro {
+public class RecordNeuro implements Parcelable {
   private long mSize;
   private Date mDate;
   private String mName;
@@ -49,7 +52,43 @@ public class RecordNeuro {
   public final boolean isChecked() {
     return mChecked;
   }
-  
+
+  // let's make it parcelable
+
+  @Override
+  public int describeContents() {
+    return 0;
+  }
+
+  @Override
+  public void writeToParcel(Parcel dest, int flags) {
+    dest.writeLong(mSize);
+    dest.writeLong(mDate.getTime());
+    dest.writeString(mName);
+    dest.writeString(mPath);
+    dest.writeDouble(mFactor);
+    dest.writeByte((byte) (mChecked ? 1 : 0));
+  }
+
+  public static final Parcelable.Creator<RecordNeuro> CREATOR =
+    new Parcelable.Creator<RecordNeuro>() {
+      public RecordNeuro createFromParcel(Parcel in) {
+        return new RecordNeuro(in);
+      }
+      public RecordNeuro[] newArray(int size) {
+        throw new UnsupportedOperationException();
+      }
+    };
+
+  private RecordNeuro(Parcel source) {
+    mSize = source.readLong();
+    mDate = new Date(source.readLong());
+    mName = source.readString();
+    mPath = source.readString();
+    mFactor = source.readDouble();
+    mChecked = (source.readByte() == 1);
+  }
+
 //  public class ImmutableFactor {
 //    final private double mFactor;
 //

@@ -25,11 +25,13 @@ import java.util.ArrayList;
 public class NeuroListActivity extends AppCompatActivity
                                implements ListGeneratorListener {
   final private String TAG = getClass().getSimpleName();
-//  private ArrayList<RecordNeuro> mRecords = new ArrayList<>();
+  private ArrayList<RecordNeuro> mRecords = new ArrayList<>();
   private RecyclerView mRecyclerView;
   private RecyclerView.Adapter mAdapter;
-  private RecyclerView.LayoutManager mLayoutManager;
   private BottomSheet bs;
+
+  private final String SAVED_STATE_OF_LIST = "saved_state_of_list";
+  private final String FAB_STATE = "fab_state";
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -55,9 +57,7 @@ public class NeuroListActivity extends AppCompatActivity
     bs.setOnDismissListener(new DialogInterface.OnDismissListener() {
       @Override
       public void onDismiss(DialogInterface dialog) {
-        if(!fab.isShown()) {
-          fab.show();
-        }
+        fab.show();
       }
     });
     fab.setOnClickListener(new View.OnClickListener() {
@@ -67,28 +67,39 @@ public class NeuroListActivity extends AppCompatActivity
         bs.show();
       }
     });
-    fab.hide(); // button is hidden on start
 
     // attach adapter with empty list
     mRecyclerView = (RecyclerView) findViewById(R.id.neuro_recycle_view);
     mRecyclerView.setHasFixedSize(true);
-    mLayoutManager = new LinearLayoutManager(this);
+    RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this);
     mRecyclerView.setLayoutManager(mLayoutManager);
-    mAdapter = new NeuroRecyclerViewAdapter(new ArrayList<RecordNeuro>());
+    if(savedInstanceState != null) {
+      mRecords = savedInstanceState.getParcelableArrayList(SAVED_STATE_OF_LIST);
+      fab.show();
+    }
+    mAdapter = new NeuroRecyclerViewAdapter(mRecords);
     mRecyclerView.setAdapter(mAdapter);
 
-    // create a list
-    Bundle extras = getIntent().getExtras();
-    String rawPath = "unknown", path = "unknown";
-    try {
-      rawPath = extras.getString(Intent.EXTRA_TEXT);
-      path = Environment.getExternalStoragePublicDirectory(rawPath).getAbsolutePath();
-      // the task can be executed only once
-      new ListGenerator(NeuroListActivity.this, this).execute(path);
-    } catch(NullPointerException e) {
-      Log.e(TAG, e.getMessage() +
-        ". rawPath: " + rawPath + ", path: " + path + ", extras: " + extras);
+    if(savedInstanceState == null) { // it's the first launch - create the list
+      fab.hide(); // button is hidden on start
+      Bundle extras = getIntent().getExtras();
+      String rawPath = "unknown", path = "unknown";
+      try {
+        rawPath = extras.getString(Intent.EXTRA_TEXT);
+        path = Environment.getExternalStoragePublicDirectory(rawPath).getAbsolutePath();
+        // the task can be executed only once
+        new ListGenerator(NeuroListActivity.this, this).execute(path);
+      } catch(NullPointerException e) {
+        Log.e(TAG, e.getMessage() +
+          ". rawPath: " + rawPath + ", path: " + path + ", extras: " + extras);
+      }
     }
+  }
+
+  @Override
+  protected void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+    outState.putParcelableArrayList(SAVED_STATE_OF_LIST, mRecords);
   }
 
   @Override
@@ -96,6 +107,7 @@ public class NeuroListActivity extends AppCompatActivity
     mAdapter = new NeuroRecyclerViewAdapter(records);
     mRecyclerView.setAdapter(mAdapter);
     if(records.size() > 0) {
+      mRecords = records;
       bs.show();
     } else {
       Toast.makeText(this, "All clear", Toast.LENGTH_SHORT).show();

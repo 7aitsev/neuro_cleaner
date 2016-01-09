@@ -7,7 +7,7 @@
     <string name="neuro_list_title">Neuro List</string>
     <string name="bottom_sheet_remove_selected_files">Remove selected files</string>
     <string name="bottom_sheet_select_all">Select all</string>
-    <string name="bottom_sheet_unselect_all">Unselect all</string>
+    <string name="bottom_sheet_deselect_all">Deselect all</string>
 
     <string name="list_gen_pb_title">Searching for files</string>
     <string name="list_gen_pb_msg">Files processed: %d</string>
