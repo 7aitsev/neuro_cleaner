@@ -1,15 +1,13 @@
-package org.appspot.neurostorage.Dialog;
+package org.appspot.NeuroCleaner.Dialog;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import org.appspot.neurostorage.R;
+import org.appspot.NeuroCleaner.R;
 
 public class BottomSheet extends Dialog {
 

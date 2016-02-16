@@ -1,4 +1,4 @@
-package org.appspot.neurostorage;
+package org.appspot.NeuroCleaner;
 
 import android.os.Parcel;
 import android.os.Parcelable;

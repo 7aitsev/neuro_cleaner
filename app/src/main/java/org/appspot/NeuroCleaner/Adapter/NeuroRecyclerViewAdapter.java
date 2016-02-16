@@ -1,4 +1,4 @@
-package org.appspot.neurostorage.Adapter;
+package org.appspot.NeuroCleaner.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,9 +14,9 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
 
-import org.appspot.neurostorage.Activity.MainActivity;
-import org.appspot.neurostorage.R;
-import org.appspot.neurostorage.RecordNeuro;
+import org.appspot.NeuroCleaner.Activity.MainActivity;
+import org.appspot.NeuroCleaner.R;
+import org.appspot.NeuroCleaner.RecordNeuro;
 
 import java.io.File;
 import java.text.DateFormat;

@@ -1,4 +1,4 @@
-package org.appspot.neurostorage.Util;
+package org.appspot.NeuroCleaner.Util;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -8,10 +8,10 @@ import android.os.Environment;
 import android.util.Log;
 import android.widget.Toast;
 
-import org.appspot.neurostorage.Activity.MainActivity;
-import org.appspot.neurostorage.R;
-import org.appspot.neurostorage.RecordNeuro;
-import org.appspot.neurostorage.interfaces.ListGeneratorListener;
+import org.appspot.NeuroCleaner.Activity.MainActivity;
+import org.appspot.NeuroCleaner.R;
+import org.appspot.NeuroCleaner.RecordNeuro;
+import org.appspot.NeuroCleaner.interfaces.ListGeneratorListener;
 
 import java.io.File;
 import java.util.ArrayList;

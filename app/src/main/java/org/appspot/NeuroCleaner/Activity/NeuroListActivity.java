@@ -1,4 +1,4 @@
-package org.appspot.neurostorage.Activity;
+package org.appspot.NeuroCleaner.Activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,12 +13,12 @@ import android.view.View;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
-import org.appspot.neurostorage.Adapter.NeuroRecyclerViewAdapter;
-import org.appspot.neurostorage.Dialog.BottomSheet;
-import org.appspot.neurostorage.R;
-import org.appspot.neurostorage.RecordNeuro;
-import org.appspot.neurostorage.Util.ListGenerator;
-import org.appspot.neurostorage.interfaces.ListGeneratorListener;
+import org.appspot.NeuroCleaner.Adapter.NeuroRecyclerViewAdapter;
+import org.appspot.NeuroCleaner.Dialog.BottomSheet;
+import org.appspot.NeuroCleaner.R;
+import org.appspot.NeuroCleaner.RecordNeuro;
+import org.appspot.NeuroCleaner.Util.ListGenerator;
+import org.appspot.NeuroCleaner.interfaces.ListGeneratorListener;
 
 import java.util.ArrayList;
 

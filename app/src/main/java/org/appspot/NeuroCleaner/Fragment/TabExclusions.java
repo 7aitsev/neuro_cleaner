@@ -1,4 +1,4 @@
-package org.appspot.neurostorage.Fragment;
+package org.appspot.NeuroCleaner.Fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.appspot.neurostorage.R;
+import org.appspot.NeuroCleaner.R;
 
 /**
  * A placeholder fragment containing a simple view.

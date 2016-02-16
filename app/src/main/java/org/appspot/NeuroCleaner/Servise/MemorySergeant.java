@@ -1,4 +1,4 @@
-package org.appspot.neurostorage.Servise;
+package org.appspot.NeuroCleaner.Servise;
 
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -10,8 +10,8 @@ import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.os.StatFs;
 
-import org.appspot.neurostorage.Activity.NeuroListActivity;
-import org.appspot.neurostorage.R;
+import org.appspot.NeuroCleaner.Activity.NeuroListActivity;
+import org.appspot.NeuroCleaner.R;
 
 public class MemorySergeant extends BroadcastReceiver {
 

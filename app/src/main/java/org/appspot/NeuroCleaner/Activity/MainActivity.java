@@ -1,6 +1,5 @@
-package org.appspot.neurostorage.Activity;
+package org.appspot.NeuroCleaner.Activity;
 
-import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -15,10 +14,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toolbar;
 
-import org.appspot.neurostorage.R;
-import org.appspot.neurostorage.Servise.MemoryOfficer;
-import org.appspot.neurostorage.Fragment.TabControl;
-import org.appspot.neurostorage.Fragment.TabExclusions;
+import org.appspot.NeuroCleaner.R;
+import org.appspot.NeuroCleaner.Fragment.TabControl;
+import org.appspot.NeuroCleaner.Fragment.TabExclusions;
 
 public class MainActivity extends AppCompatActivity {
   // singleton

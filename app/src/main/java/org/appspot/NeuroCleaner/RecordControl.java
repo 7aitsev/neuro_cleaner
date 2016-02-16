@@ -1,4 +1,4 @@
-package org.appspot.neurostorage;
+package org.appspot.NeuroCleaner;
 
 public class RecordControl {
   private String mDirName;

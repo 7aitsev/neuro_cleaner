@@ -1,6 +1,6 @@
-package org.appspot.neurostorage.interfaces;
+package org.appspot.NeuroCleaner.interfaces;
 
-import org.appspot.neurostorage.RecordNeuro;
+import org.appspot.NeuroCleaner.RecordNeuro;
 
 import java.util.ArrayList;
 

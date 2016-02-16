@@ -1,4 +1,4 @@
-package org.appspot.neurostorage.Adapter;
+package org.appspot.NeuroCleaner.Adapter;
 
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import org.appspot.neurostorage.Activity.MainActivity;
-import org.appspot.neurostorage.Activity.NeuroListActivity;
-import org.appspot.neurostorage.R;
-import org.appspot.neurostorage.RecordControl;
+import org.appspot.NeuroCleaner.Activity.MainActivity;
+import org.appspot.NeuroCleaner.Activity.NeuroListActivity;
+import org.appspot.NeuroCleaner.R;
+import org.appspot.NeuroCleaner.RecordControl;
 
 import java.util.ArrayList;
 

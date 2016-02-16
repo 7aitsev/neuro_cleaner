@@ -1,4 +1,4 @@
-package org.appspot.neurostorage;
+package org.appspot.NeuroCleaner;
 
 abstract class RecordAbstract {
   private String mName;

@@ -1,4 +1,4 @@
-package org.appspot.neurostorage.Fragment;
+package org.appspot.NeuroCleaner.Fragment;
 
 import android.os.Bundle;
 import android.os.Environment;
@@ -9,10 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import org.appspot.neurostorage.Activity.MainActivity;
-import org.appspot.neurostorage.Adapter.ControlRecyclerViewAdapter;
-import org.appspot.neurostorage.R;
-import org.appspot.neurostorage.RecordControl;
+import org.appspot.NeuroCleaner.Activity.MainActivity;
+import org.appspot.NeuroCleaner.Adapter.ControlRecyclerViewAdapter;
+import org.appspot.NeuroCleaner.R;
+import org.appspot.NeuroCleaner.RecordControl;
 
 import java.util.ArrayList;
 

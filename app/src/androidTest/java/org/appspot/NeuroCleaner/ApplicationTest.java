@@ -1,4 +1,4 @@
-package org.appspot.neurostorage;
+package org.appspot.NeuroCleaner;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
