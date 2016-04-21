@@ -69,7 +69,7 @@ public class ListGenerator extends AsyncTask<String, Integer, ArrayList<RecordNe
       getListOfAllFilesInDir(params[0], tempRecords);
       Collections.sort(tempRecords, FACTOR_ORDER);
       for(RecordNeuro rn : tempRecords) {
-        if(rn.getFactor() >= tempRecords.get(1).getFactor() * 0) { // Golden Ratio!
+        if(rn.getFactor() >= tempRecords.get(0).getFactor() * 0.38) { // Golden Ratio!
           mRecords.add(rn);
         }
       }
@@ -135,10 +135,7 @@ public class ListGenerator extends AsyncTask<String, Integer, ArrayList<RecordNe
   /** Checks if external storage is available for read and write */
   public boolean isExternalStorageWritable() {
     String state = Environment.getExternalStorageState();
-    if(Environment.MEDIA_MOUNTED.equals(state)) {
-      return true;
-    }
-    return false;
+    return Environment.MEDIA_MOUNTED.equals(state);
   }
 
   /** Calculates difference between two dates in seconds */
